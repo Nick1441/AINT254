@@ -4,19 +4,54 @@ using UnityEngine;
 
 public class BasicMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+    float LerpTime;
+    float CurrentLerpTime;
+    float Perc = 1;
 
-    }
-
-    // Update is called once per frame
+    Vector3 StartPos;
+    Vector3 EndPos;
+    Vector3 HELLO;
+    
     void Update()
     {
-        Move();
+        Movement();
        
         //transform.Translate(moveSpeed * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, moveSpeed * Input.GetAxis("Vertical") * Time.deltaTime);
     }
+
+    public void Movement()
+    {
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
+        {
+            if (Perc == 1)
+            {
+                LerpTime = 1;
+                CurrentLerpTime = 0;
+            }
+        }
+
+        StartPos = gameObject.transform.position;
+        EndPos = gameObject.transform.position;
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {   
+            Debug.Log("HELLO");
+            EndPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1);
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            EndPos = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            EndPos = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
+        }
+
+        CurrentLerpTime += Time.deltaTime * 5.5f;
+        Perc = CurrentLerpTime / LerpTime;
+        gameObject.transform.position = Vector3.Lerp(StartPos, EndPos, Perc);
+    }
+
 
     public void Move()
     {
