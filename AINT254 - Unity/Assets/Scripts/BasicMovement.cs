@@ -6,36 +6,52 @@ public class BasicMovement : MonoBehaviour
 {
     float LerpTime;
     float CurrentLerpTime;
-    float Perc = 1;
+    float MoveTime = 1;
 
+    bool input;
+    public bool Jumping;
+    private bool Cooldown = false;
+
+    //Locations Of Players Start and End Positions.
     Vector3 StartPos;
     Vector3 EndPos;
-    Vector3 HELLO;
+
+    //Animator anim;
+    //public GameObject Player;
     
+    //void Start()
+    //{
+    //    anim = gameObject.GetComponent<Animator>();
+    //}
+
     void Update()
     {
+        //This Is Called Every Frame, it is for movement of the Player.
         Movement();
-       
-        //transform.Translate(moveSpeed * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, moveSpeed * Input.GetAxis("Vertical") * Time.deltaTime);
+        //AnimationController();
     }
 
     public void Movement()
     {
+        //Checks To See if player is pressing one of the move Keys.
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
         {
-            if (Perc == 1)
+            if (MoveTime == 1)
             {
                 LerpTime = 1;
                 CurrentLerpTime = 0;
+                input = true;
+                Jumping = true;
             }
         }
 
+        //Sets Start and End Position By Defualt to where the Player is, Prevents Player Reseting Position.
         StartPos = gameObject.transform.position;
-        EndPos = gameObject.transform.position;
 
+        //Moves Player when any of the Movement Keys Are Pressed.
         if (Input.GetKeyDown(KeyCode.W))
-        {   
-            Debug.Log("HELLO");
+        {
+            Debug.Log("UNSDFHSUADHU");
             EndPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1);
         }
         if (Input.GetKeyDown(KeyCode.D))
@@ -47,33 +63,23 @@ public class BasicMovement : MonoBehaviour
             EndPos = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
         }
 
-        CurrentLerpTime += Time.deltaTime * 5.5f;
-        Perc = CurrentLerpTime / LerpTime;
-        gameObject.transform.position = Vector3.Lerp(StartPos, EndPos, Perc);
-    }
-
-
-    public void Move()
-    {
-
-        if (Input.GetKey(KeyCode.W))
+        if (input == true)
         {
-            Debug.Log("Test");
-            Vector3 MoveVec = this.transform.position;
-            MoveVec.z = MoveVec.z + 1;
-            this.transform.position = MoveVec;
-        }
-        else if (Input.GetKeyDown(KeyCode.A))
-        {
-            Vector3 MoveVec = this.transform.position;
-            MoveVec.x = MoveVec.x - 1;
-            this.transform.position = MoveVec;
-        }
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            Vector3 MoveVec = this.transform.position;
-            MoveVec.x = MoveVec.x += 1;
-            this.transform.position = MoveVec;
+            //Moves Player to New End Position.
+            CurrentLerpTime += Time.deltaTime;
+            MoveTime = CurrentLerpTime / LerpTime;
+            gameObject.transform.position = Vector3.Lerp(StartPos, EndPos, MoveTime);
+
+            //Checks to see if Movement is almost complete then Resets.
+            if (MoveTime > 0.8)
+            {
+                MoveTime = 1;
+            }
+
+            if (Mathf.Round(MoveTime) == 1)
+            {
+                Jumping = false;
+            }
         }
     }
 }
