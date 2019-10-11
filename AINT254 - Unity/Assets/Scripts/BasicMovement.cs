@@ -10,27 +10,27 @@ public class BasicMovement : MonoBehaviour
 
     bool input;
     public bool Jumping;
-    private bool Cooldown = false;
 
     //Locations Of Players Start and End Positions.
     Vector3 StartPos;
     Vector3 EndPos;
 
-    //Animator anim;
-    //public GameObject Player;
-    
-    //void Start()
-    //{
-    //    anim = gameObject.GetComponent<Animator>();
-    //}
-
     void Update()
     {
         //This Is Called Every Frame, it is for movement of the Player.
         Movement();
-        //AnimationController();
     }
 
+    public void OnCollisionEnter(Collision Coll)
+    {
+        if (Coll.gameObject.name == "TestCube")
+        {
+            float Rounded = (Mathf.FloorToInt(transform.position.z)) + 0.5f;
+            EndPos = new Vector3(transform.position.x, transform.position.y, Rounded);
+
+            EndMovement(EndPos);
+        }
+    }
     public void Movement()
     {
         //Checks To See if player is pressing one of the move Keys.
@@ -51,7 +51,6 @@ public class BasicMovement : MonoBehaviour
         //Moves Player when any of the Movement Keys Are Pressed.
         if (Input.GetKeyDown(KeyCode.W))
         {
-            Debug.Log("UNSDFHSUADHU");
             EndPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1);
         }
         if (Input.GetKeyDown(KeyCode.D))
@@ -63,10 +62,16 @@ public class BasicMovement : MonoBehaviour
             EndPos = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
         }
 
+        EndMovement(EndPos);
+        
+    }
+
+    public void EndMovement(Vector3 EndPos)
+    {
         if (input == true)
         {
             //Moves Player to New End Position.
-            CurrentLerpTime += Time.deltaTime;
+            CurrentLerpTime += Time.deltaTime * 5;
             MoveTime = CurrentLerpTime / LerpTime;
             gameObject.transform.position = Vector3.Lerp(StartPos, EndPos, MoveTime);
 
