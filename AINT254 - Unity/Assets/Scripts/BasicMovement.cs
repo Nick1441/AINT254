@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class BasicMovement : MonoBehaviour
 {
@@ -19,6 +21,7 @@ public class BasicMovement : MonoBehaviour
     {
         //This Is Called Every Frame, it is for movement of the Player.
         Movement();
+        RestartGame();
     }
 
     public void OnCollisionEnter(Collision Coll)
@@ -85,6 +88,15 @@ public class BasicMovement : MonoBehaviour
             {
                 Jumping = false;
             }
+        }
+    }
+
+    public void RestartGame()
+    {
+        if (Input.GetKeyDown("escape"))
+        {
+            Debug.Log("WORKS");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
