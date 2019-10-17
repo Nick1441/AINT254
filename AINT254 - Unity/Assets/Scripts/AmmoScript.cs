@@ -13,9 +13,20 @@ public class AmmoScript : MonoBehaviour
         GetComponent<Rigidbody>().AddForce(transform.forward * MoveSpeed);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        Debug.Log("THIS");
+        other.transform.SendMessage("TakeDamage", Damage, SendMessageOptions.DontRequireReceiver);
+        DestroyObject();
+    }
+
+    private void DestroyObject()
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnBecameInvisible()
+    {
+        DestroyObject();
     }
 }
