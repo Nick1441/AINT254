@@ -23,7 +23,7 @@ public class BasicMovement : MonoBehaviour
 
     public void OnCollisionEnter(Collision Coll)
     {
-        if (Coll.gameObject.layer == LayerMask.NameToLayer("Environment"));
+        if (Coll.gameObject.layer == LayerMask.NameToLayer("Environment"))
         {
             float Rounded = (Mathf.FloorToInt(transform.position.z)) + 0.5f;
             EndPos = new Vector3(transform.position.x, transform.position.y, Rounded);
