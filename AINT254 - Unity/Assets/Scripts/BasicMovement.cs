@@ -28,7 +28,7 @@ public class BasicMovement : MonoBehaviour
     {
         if (Coll.gameObject.layer == LayerMask.NameToLayer("Environment"))
         {
-            float Rounded = (Mathf.FloorToInt(transform.position.z)) + 0.5f;
+            float Rounded = (Mathf.FloorToInt(transform.position.z));
             EndPos = new Vector3(transform.position.x, transform.position.y, Rounded);
 
             EndMovement(EndPos);
@@ -51,18 +51,18 @@ public class BasicMovement : MonoBehaviour
         //Sets Start and End Position By Defualt to where the Player is, Prevents Player Reseting Position.
         StartPos = gameObject.transform.position;
 
-        //Moves Player when any of the Movement Keys Are Pressed.
+        //Moves Player when any of the Movement Keys Are Pressed. Each Time The Player Moves, Rounds it to Integer to keep player On exact Blocks.
         if (Input.GetKeyDown(KeyCode.W))
         {
-            EndPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1);
+            EndPos = new Vector3(transform.position.x, transform.position.y, (Mathf.RoundToInt(transform.position.z)) + 1);
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            EndPos = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
+            EndPos = new Vector3((Mathf.RoundToInt(transform.position.x)) + 1, transform.position.y, transform.position.z);
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            EndPos = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
+            EndPos = new Vector3((Mathf.RoundToInt(transform.position.x)) - 1, transform.position.y, transform.position.z);
         }
 
         EndMovement(EndPos);
