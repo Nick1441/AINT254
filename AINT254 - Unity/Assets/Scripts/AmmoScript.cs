@@ -13,10 +13,10 @@ public class AmmoScript : MonoBehaviour
         GetComponent<Rigidbody>().AddForce(transform.forward * MoveSpeed);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider Col)
     {
         Debug.Log("THIS");
-        other.transform.SendMessage("TakeDamage", Damage, SendMessageOptions.DontRequireReceiver);
+        Col.transform.SendMessage("TakeDamage", Damage, SendMessageOptions.DontRequireReceiver);
         DestroyObject();
     }
 
