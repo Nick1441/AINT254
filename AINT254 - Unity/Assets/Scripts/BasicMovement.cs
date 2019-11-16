@@ -12,16 +12,69 @@ public class BasicMovement : MonoBehaviour
 
     bool input;
     public bool Jumping;
+    private bool Platform = false;
+    public Rigidbody rb;
+    public float MoveSpeed = 10;
 
     //Locations Of Players Start and End Positions.
     Vector3 StartPos;
     Vector3 EndPos;
 
+    void start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
     void Update()
     {
         //This Is Called Every Frame, it is for movement of the Player.
-        Movement();
+        //Movement();
         RestartGame();
+        PlatFormCollision();
+    }
+
+    public void OnPlatForm()
+    {
+        Platform = true;
+    }
+    public void PlatFormCollision()
+    {
+        
+        if (Platform == false)
+        {
+            Movement();
+            Debug.Log(Platform);
+        }
+        else if (Platform == true)
+        {
+            Debug.Log(Platform);
+            //MOVE RIGIDBODY
+            rb = GetComponent<Rigidbody>();
+            rb.AddRelativeForce(transform.right * MoveSpeed);
+
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                if (MoveTime == 1)
+                {
+                    LerpTime = 1;
+                    CurrentLerpTime = 0;
+                    input = true;
+                    Jumping = true;
+                }
+            }
+
+
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                rb.AddRelativeForce(-transform.right * MoveSpeed);
+                StartPos = gameObject.transform.position;
+                EndPos = new Vector3(transform.position.x, transform.position.y, (Mathf.RoundToInt(transform.position.z)) + 1);
+
+                EndMovement(EndPos);
+                Platform = false;
+            }
+
+
+        }
     }
 
     public void OnCollisionEnter(Collision Coll)
