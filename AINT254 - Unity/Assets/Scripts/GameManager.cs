@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     //GAME
     public void EndGame()
     {
+        Cursor.visible = true;
         SceneManager.LoadScene("EndScene");
     }
 
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
     //END MENU
     public void RestartGame()
     {
+        Cursor.visible = true;
         SceneManager.LoadScene("MainMenu");
     }
 }

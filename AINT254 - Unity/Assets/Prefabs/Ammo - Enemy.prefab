@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 7088629133118240718}
   - component: {fileID: 1711319528085938043}
   - component: {fileID: 2627344634877277761}
-  m_Layer: 9
-  m_Name: Ammo
+  m_Layer: 13
+  m_Name: Ammo - Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ee7526dac7b96ad47931b8d875532614, type: 2}
+  - {fileID: 2100000, guid: 7eb1ee3b28ff6c14286d9bef74b47303, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
