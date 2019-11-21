@@ -7,7 +7,7 @@ public class MovingFloor : MonoBehaviour
 {
     public UnityEvent OnPlatform;
     // Start is called before the first frame update
-    public void OnTriggerEnter(Collider col)
+    public void OnTriggerStay(Collider col)
     {
         OnPlatform.Invoke();
     }

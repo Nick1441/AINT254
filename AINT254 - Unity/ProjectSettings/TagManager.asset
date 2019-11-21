@@ -19,9 +19,9 @@ TagManager:
   - Player
   - Enemy
   - Bullets - Enemy
-  - Platform
-  - 
-  - 
+  - Platform-Right
+  - Platform-Left
+  - DeathFloor
   - 
   - 
   - 

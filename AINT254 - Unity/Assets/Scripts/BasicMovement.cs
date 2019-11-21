@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.Events;
 
 public class BasicMovement : MonoBehaviour
 {
@@ -12,7 +12,12 @@ public class BasicMovement : MonoBehaviour
 
     bool input;
     public bool Jumping;
+    public bool Floating;
+    public bool InAir = false;
     private bool Platform = false;
+    private bool PlatformLeft = false;
+    private bool OnFirstTime = true;
+    private bool OnFirstTime2 = false;
     public Rigidbody rb;
     public float MoveSpeed = 10;
 
@@ -23,6 +28,7 @@ public class BasicMovement : MonoBehaviour
     void start()
     {
         rb = GetComponent<Rigidbody>();
+        //bc = GetComponent<BoxCollider>();
     }
     void Update()
     {
@@ -36,46 +42,116 @@ public class BasicMovement : MonoBehaviour
     {
         Platform = true;
     }
-    public void PlatFormCollision()
+
+    public void OnPlatformLeft()
     {
         
-        if (Platform == false)
+        PlatformLeft = true;
+    }
+
+    //PLATFORMS MOVING GOING RIGHT
+    public void PlatFormCollision()
+    {
+
+        if (Platform == false && PlatformLeft == false)
         {
             Movement();
-            Debug.Log(Platform);
         }
         else if (Platform == true)
         {
-            Debug.Log(Platform);
-            //MOVE RIGIDBODY
-            rb = GetComponent<Rigidbody>();
-            rb.AddRelativeForce(transform.right * MoveSpeed);
-
-            if (Input.GetKeyDown(KeyCode.W))
+                transform.position = new Vector3(transform.position.x, transform.position.y, (Mathf.CeilToInt(transform.position.z)));
+            if (MoveTime == 1)
             {
-                if (MoveTime == 1)
+                LerpTime = 1;
+                CurrentLerpTime = 0;
+                input = true;
+                Floating = true;
+            }
+
+
+            StartPos = gameObject.transform.position;
+
+            EndPos = new Vector3((Mathf.RoundToInt(transform.position.x)) + 1, transform.position.y, transform.position.z);
+
+            if (input == true)
+            {
+                //Moves Player to New End Position.
+                CurrentLerpTime += Time.deltaTime * 5;
+                MoveTime = CurrentLerpTime / LerpTime;
+                gameObject.transform.position = Vector3.Lerp(StartPos, EndPos, MoveTime);
+
+
+                //Checks to see if Movement is almost complete then Resets.
+                if (MoveTime > 0.8)
                 {
-                    LerpTime = 1;
-                    CurrentLerpTime = 0;
-                    input = true;
-                    Jumping = true;
+                    MoveTime = 1;
+                }
+
+                if (Mathf.Round(MoveTime) == 1)
+                {
+                    Floating = false;
                 }
             }
 
-
             if (Input.GetKeyDown(KeyCode.W))
             {
-                rb.AddRelativeForce(-transform.right * MoveSpeed);
-                StartPos = gameObject.transform.position;
-                EndPos = new Vector3(transform.position.x, transform.position.y, (Mathf.RoundToInt(transform.position.z)) + 1);
-
-                EndMovement(EndPos);
                 Platform = false;
+                EndPos = new Vector3(transform.position.x, transform.position.y, (Mathf.CeilToInt(transform.position.z)) + 1);
+                EndMovement(EndPos);
+                
+            }
+
+            Platform = false;
+        }
+        else if (PlatformLeft == true)
+            {
+            transform.position = new Vector3(transform.position.x, transform.position.y, (Mathf.CeilToInt(transform.position.z)));
+            if (MoveTime == 1)
+            {
+                LerpTime = 1;
+                CurrentLerpTime = 0;
+                input = true;
+                Floating = true;
             }
 
 
+            StartPos = gameObject.transform.position;
+
+            EndPos = new Vector3((Mathf.RoundToInt(transform.position.x)) - 1, transform.position.y, transform.position.z);
+
+            if (input == true)
+            {
+                //Moves Player to New End Position.
+                CurrentLerpTime += Time.deltaTime * 5;
+                MoveTime = CurrentLerpTime / LerpTime;
+                gameObject.transform.position = Vector3.Lerp(StartPos, EndPos, MoveTime);
+
+
+                //Checks to see if Movement is almost complete then Resets.
+                if (MoveTime > 0.8)
+                {
+                    MoveTime = 1;
+                }
+
+                if (Mathf.Round(MoveTime) == 1)
+                {
+                    Floating = false;
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                PlatformLeft = false;
+                EndPos = new Vector3(transform.position.x, transform.position.y, (Mathf.CeilToInt(transform.position.z)) + 1);
+                EndMovement(EndPos);
+
+            }
+
+            PlatformLeft = false;
         }
     }
+
+    //PLATFORMS MOVING GOING RIGHT
 
     public void OnCollisionEnter(Collision Coll)
     {

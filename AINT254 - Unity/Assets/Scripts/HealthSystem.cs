@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[System.Serializable]
 public class OnDamagedEvent : UnityEvent<int> { }
 public class HealthSystem : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class HealthSystem : MonoBehaviour
     public void TakeDamage (int damage)
     {
         Health -= damage;
+
+        onDamaged.Invoke(Health);
 
         if (Health < 1)
         {

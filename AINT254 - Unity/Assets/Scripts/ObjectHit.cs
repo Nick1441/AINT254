@@ -8,6 +8,6 @@ public class ObjectHit : MonoBehaviour
 
     private void OnTriggerEnter(Collider Col)
     {
-        Col.transform.SendMessage("TakeDamage", Damage, SendMessageOptions.DontRequireReceiver);
+        Col.transform.GetChild(0).SendMessage("TakeDamage", Damage, SendMessageOptions.DontRequireReceiver);
     }
 }
