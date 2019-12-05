@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6958816799831354937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6958816799831354943}
+  - component: {fileID: 6958816799831354942}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6958816799831354943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6958816799831354937}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6958816799831354942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6958816799831354937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 466f6ebf10ab07b4794bc98ab570fa6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  Distance: 0
+  Range: 20
+  LavaJumpSingleL: {fileID: 6772733331569532475, guid: 6f21f503e832dd74d894bdaeb6bc5a51,
+    type: 3}
+  LavaJumpSingleR: {fileID: 731487092524123015, guid: 544a957707f35eb4aa27a3c196d02fdb,
+    type: 3}
+  LavaJumpDoubL: {fileID: 4904261795938309551, guid: 6cc4d63c2977f0948874fa78d6b9c707,
+    type: 3}
+  LavaJumpDoubR: {fileID: 6069080161101773953, guid: 5b43f96b055f2ce44a037eede63f5fb6,
+    type: 3}
+  LavaJumpTripL: {fileID: 2842783140575013743, guid: deab862172bedb94c82e95e9a5836a45,
+    type: 3}
+  LavaJumpTripR: {fileID: 3526865709475031943, guid: 181b89e64067a4b478f68addee9dcd66,
+    type: 3}
+  EnemyAttack: {fileID: 9044214243072432432, guid: e12be75b9c1ffc14b834d041e2d7bd0f,
+    type: 3}
+  TrainDodge: {fileID: 2829044742761098917, guid: 89ea59b65755eaf43bc2926ea6854a74,
+    type: 3}
+  Spawner: {fileID: 6958816799831354937}
+  Chance: 0
+  NextSpawnerDis: 0
