@@ -20,6 +20,7 @@ public class SpawnerSpawner : MonoBehaviour
     public GameObject LavaJumpTripR;
 
     public GameObject EnemyAttack;
+    public GameObject Trees;
 
     public GameObject TrainDodge;
     public GameObject Spawner;
@@ -49,13 +50,18 @@ public class SpawnerSpawner : MonoBehaviour
                 NextSpawnerDis = 2;
             }
             //Jump R Single
-            else if (Chance > 10 && Chance <= 20)
+            else if (Chance > 10 && Chance <= 11)
             {
                 GameObject Challenge1 = Instantiate(LavaJumpSingleR, transform.position, transform.rotation) as GameObject;
                 NextSpawnerDis = 2;
             }
+            else if (Chance > 11 && Chance <= 29)
+            {
+                GameObject Challenge1 = Instantiate(Trees, transform.position, transform.rotation) as GameObject;
+                NextSpawnerDis = 17;
+            }
             //Jump L Double
-            else if (Chance > 20 && Chance <= 30)
+            else if (Chance > 29 && Chance <= 30)
             {
                 GameObject Challenge1 = Instantiate(LavaJumpDoubL, transform.position, transform.rotation) as GameObject;
                 NextSpawnerDis = 3;

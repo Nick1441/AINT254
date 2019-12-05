@@ -60,6 +60,7 @@ MonoBehaviour:
     type: 3}
   EnemyAttack: {fileID: 9044214243072432432, guid: e12be75b9c1ffc14b834d041e2d7bd0f,
     type: 3}
+  Trees: {fileID: 5122588398813596735, guid: 81acb473cbc64ec48a3425771cb56bb4, type: 3}
   TrainDodge: {fileID: 2829044742761098917, guid: 89ea59b65755eaf43bc2926ea6854a74,
     type: 3}
   Spawner: {fileID: 6958816799831354937}
