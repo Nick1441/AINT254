@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class LookAtPlayer : MonoBehaviour
 {
-    public Transform player;
+    public GameObject player;
+    public Transform playerPos;
 
     public void Update()
     {
-        transform.LookAt(player);
+        transform.LookAt(playerPos);
+    }
+
+    public void Start()
+    {
+        player = GameObject.FindWithTag("Player");
+        playerPos = player.transform;
     }
 }

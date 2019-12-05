@@ -470,22 +470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7d810b5eb3fb94d9af42b99c9ea4b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnPlatform:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnPlatForm
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+  player: {fileID: 0}
 --- !u!1 &2775132881853669546
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,7 +644,7 @@ GameObject:
   - component: {fileID: 2775132882954815154}
   - component: {fileID: 2775132882954815149}
   - component: {fileID: 2775132882954815148}
-  - component: {fileID: 2775132882954815155}
+  - component: {fileID: 389711699}
   m_Layer: 14
   m_Name: MovingPlatform
   m_TagString: Untagged
@@ -740,7 +725,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2775132882954815155
+--- !u!114 &389711699
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -749,25 +734,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2775132882954815145}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff7d810b5eb3fb94d9af42b99c9ea4b0, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c0545d3a59740a48bc038cea5a9370e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnPlatform:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnPlatForm
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+  player: {fileID: 0}
 --- !u!1 &2775132883007113723
 GameObject:
   m_ObjectHideFlags: 0
@@ -1166,22 +1136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7d810b5eb3fb94d9af42b99c9ea4b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnPlatform:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnPlatformLeft
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+  player: {fileID: 0}
 --- !u!1 &4145120994806070509
 GameObject:
   m_ObjectHideFlags: 0
@@ -1491,22 +1446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7d810b5eb3fb94d9af42b99c9ea4b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnPlatform:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnPlatformLeft
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+  player: {fileID: 0}
 --- !u!1 &6646832891833450708
 GameObject:
   m_ObjectHideFlags: 0
@@ -1787,7 +1727,7 @@ GameObject:
   - component: {fileID: 7132387330470614187}
   - component: {fileID: 7132387330470614186}
   - component: {fileID: 7132387330470614181}
-  - component: {fileID: 7132387330470614180}
+  - component: {fileID: 1459811846}
   m_Layer: 14
   m_Name: MovingPlatform (1)
   m_TagString: Untagged
@@ -1868,7 +1808,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7132387330470614180
+--- !u!114 &1459811846
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1877,25 +1817,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7132387330470614182}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff7d810b5eb3fb94d9af42b99c9ea4b0, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c0545d3a59740a48bc038cea5a9370e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnPlatform:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnPlatForm
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+  player: {fileID: 0}
 --- !u!1 &8946146419345363773
 GameObject:
   m_ObjectHideFlags: 0
@@ -2162,22 +2087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7d810b5eb3fb94d9af42b99c9ea4b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnPlatform:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnPlatForm
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+  player: {fileID: 0}
 --- !u!1 &8946146421111224940
 GameObject:
   m_ObjectHideFlags: 0

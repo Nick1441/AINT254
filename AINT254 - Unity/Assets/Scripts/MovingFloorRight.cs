@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class MovingFloor : MonoBehaviour
+public class MovingFloorRight : MonoBehaviour
 {
 
     //UnityEvent TestEvent = new UnityEvent()
@@ -17,8 +17,8 @@ public class MovingFloor : MonoBehaviour
     }
     public void TestThis()
     {
-        
-        player.GetComponent<BasicMovement>().OnPlatformLeft();
+
+        player.GetComponent<BasicMovement>().OnPlatForm();
     }
     // Start is called before the first frame update
     public void OnTriggerStay(Collider col)
