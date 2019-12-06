@@ -3,7 +3,97 @@ guid: 99f0ed75a02110b4b903e7b8e7127480
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Black.001
+    second: {fileID: 2100000, guid: f8deda253d465784c897c65e5609dce8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Funnel_1
+    second: {fileID: 2100000, guid: 92b2de6062468fa43a12457a998ac6e9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Funnel_1.001
+    second: {fileID: 2100000, guid: 5f0d0c5920fe6ca4e8a4de5714d2bd18, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Funnel_2
+    second: {fileID: 2100000, guid: 9bfe8b122d5ce0147adc6a3ab35d102b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Funnel_2.001
+    second: {fileID: 2100000, guid: 4dbe259c48eef014487b146f9bc95281, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Funnel_2.002
+    second: {fileID: 2100000, guid: 54d708e7043c18b4f84363bb8572903b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Funnel_2.003
+    second: {fileID: 2100000, guid: b2352d88526553e4b824fe1f5a7961a5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Funnel_2.004
+    second: {fileID: 2100000, guid: 42e7ac7bfd9174a47b16f0abc3e23a17, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Funnel_2.005
+    second: {fileID: 2100000, guid: 31da4708d1fc9de48b3442433e315b50, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Funnel_2.006
+    second: {fileID: 2100000, guid: 8b4aa4a807bd72448ba76c390be76172, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Green
+    second: {fileID: 2100000, guid: 96ae0a0f7bc81664780442cc31f7f301, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MainTrain
+    second: {fileID: 2100000, guid: ca847f1079f7ccc4cb0836ff50a1f994, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wheel
+    second: {fileID: 2100000, guid: 11fa9bacfd678a7498db05af1bf07d1d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wheel.001
+    second: {fileID: 2100000, guid: ba7948a0c7c8ae8408cf9800d6b119bf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wheel.002
+    second: {fileID: 2100000, guid: 2cf74abf6d4048d44a5287d41738e1df, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wheel.003
+    second: {fileID: 2100000, guid: 57fd24ab06fc4894cbf2fc8a592b2ef3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wheel.004
+    second: {fileID: 2100000, guid: 71e67d020cba81847bda4928d9051a0c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wheel.005
+    second: {fileID: 2100000, guid: 369d1da21223e6a478b949a5bd68aa59, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
