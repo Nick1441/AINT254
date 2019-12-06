@@ -94,7 +94,7 @@ public class SpawnerSpawner : MonoBehaviour
             else
             {
                 GameObject Challenge2 = Instantiate(TrainDodge, transform.position, transform.rotation) as GameObject;
-                NextSpawnerDis = 2;
+                NextSpawnerDis = 4;
             }
 
             Vector3 NextSpawner = new Vector3(transform.position.x, transform.position.y, transform.position.z + NextSpawnerDis);
