@@ -54,6 +54,16 @@ public class BasicMovement : MonoBehaviour
 
         if (Platform == false && PlatformLeft == false)
         {
+            //If statment to stop Player Walking Off Edge of Map
+            if (gameObject.transform.position.x > -24 && gameObject.transform.position.x < 22)
+            {
+                
+            }
+            else
+            {
+                Debug.Log("Edge Of Map");
+            }
+
             Movement();
         }
         else if (Platform == true)

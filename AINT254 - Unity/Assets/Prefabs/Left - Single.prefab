@@ -730,4 +730,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   Distance: 0
-  Range: 22
+  Range: 42

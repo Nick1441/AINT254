@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
+        Cursor.visible = true;
         PauseMenu.SetActive(true);
         Time.timeScale = 0f;
         IsGamePaused = true;
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
 
     public void Resume()
     {
+        Cursor.visible = false;
         PauseMenu.SetActive(false);
         Time.timeScale = 1f;
         IsGamePaused = false;
@@ -58,12 +60,14 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         Cursor.visible = true;
+        PauseMenu.SetActive(false);
         SceneManager.LoadScene("EndScene");
     }
 
     //MAIN MENU
     public void StartGame()
     {
+        Cursor.visible = true;
         SceneManager.LoadScene("Level1");
     }
 
@@ -77,6 +81,8 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         Cursor.visible = true;
+        Cursor.visible = true;
+        PauseMenu.SetActive(false);
         SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1f;
     }

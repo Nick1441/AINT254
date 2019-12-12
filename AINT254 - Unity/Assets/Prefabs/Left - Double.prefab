@@ -664,7 +664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   Distance: 0
-  Range: 22
+  Range: 42
 --- !u!1 &6879994429786204840
 GameObject:
   m_ObjectHideFlags: 0
