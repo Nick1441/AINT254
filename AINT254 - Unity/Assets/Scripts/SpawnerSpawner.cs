@@ -21,6 +21,8 @@ public class SpawnerSpawner : MonoBehaviour
 
     public GameObject EnemyAttack;
     public GameObject Trees;
+    public GameObject Trees2;
+    public GameObject Trees3;
 
     public GameObject TrainDodge;
     public GameObject Spawner;
@@ -58,7 +60,7 @@ public class SpawnerSpawner : MonoBehaviour
             else if (Chance > 11 && Chance <= 29)
             {
                 GameObject Challenge1 = Instantiate(Trees, transform.position, transform.rotation) as GameObject;
-                NextSpawnerDis = 17;
+                NextSpawnerDis = 20;
             }
             //Jump L Double
             else if (Chance > 29 && Chance <= 30)
@@ -91,10 +93,20 @@ public class SpawnerSpawner : MonoBehaviour
                 NextSpawnerDis = 4;
             }
             //Train Spawn
-            else
+            else if (Chance >80 && Chance <= 90)
             {
                 GameObject Challenge2 = Instantiate(TrainDodge, transform.position, transform.rotation) as GameObject;
                 NextSpawnerDis = 6;
+            }
+            else if (Chance > 90 && Chance <= 95)
+            {
+                GameObject Challenge2 = Instantiate(Trees3, transform.position, transform.rotation) as GameObject;
+                NextSpawnerDis = 10;
+            }
+            else
+            {
+                GameObject Challenge2 = Instantiate(Trees2, transform.position, transform.rotation) as GameObject;
+                NextSpawnerDis = 25;
             }
 
             Vector3 NextSpawner = new Vector3(transform.position.x, transform.position.y, transform.position.z + NextSpawnerDis);

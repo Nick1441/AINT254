@@ -13,7 +13,19 @@ public class GameManager : MonoBehaviour
     private CameraMovement CM;
     private Weapon W;
 
-    //PAUSE MENU
+    //Setting Starting Arguments, Resets Pause Menu. Puts Time Back Incase Restart From Pause Menu.
+    public void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        IsGamePaused = false;
+        PauseMenu.SetActive(false);
+        CM = Camera.GetComponent<CameraMovement>();
+        CM.enabled = true;
+        W = Weapon.GetComponent<Weapon>();
+        Time.timeScale = 1f;
+    }
+    
+    //Checking If Game Is Currently Paused.
     public void PauseCheck()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -29,45 +41,37 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //Opens Pause Menu, Freezes Time, Disabeles Movement/Weapon To Prevent User Cheating/Stacking Ammo.
     public void Pause()
     {
-        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         PauseMenu.SetActive(true);
-        Time.timeScale = 0f;
         IsGamePaused = true;
+        Time.timeScale = 0f;
         CM.enabled = false;
         W.enabled = false;
     }
 
+    //Sets Game Back To Default Settings. Hides Cursor. 
     public void Resume()
     {
-        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         PauseMenu.SetActive(false);
-        Time.timeScale = 1f;
         IsGamePaused = false;
+        Time.timeScale = 1f;
         CM.enabled = true;
         W.enabled = true;
-    }
-
-
-    public void Start()
-    {
-        CM = Camera.GetComponent<CameraMovement>();
-        W = Weapon.GetComponent<Weapon>();
     }
 
     //GAME
     public void EndGame()
     {
-        Cursor.visible = true;
-        PauseMenu.SetActive(false);
         SceneManager.LoadScene("EndScene");
     }
 
     //MAIN MENU
     public void StartGame()
     {
-        Cursor.visible = true;
         SceneManager.LoadScene("Level1");
     }
 
@@ -80,14 +84,10 @@ public class GameManager : MonoBehaviour
     //END MENU
     public void RestartGame()
     {
-        Cursor.visible = true;
-        Cursor.visible = true;
-        PauseMenu.SetActive(false);
         SceneManager.LoadScene("MainMenu");
-        Time.timeScale = 1f;
     }
 
-    public void Update()
+    void Update()
     {
         PauseCheck();
     }

@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - UI
   layers:
   - Default
   - TransparentFX
@@ -23,8 +24,8 @@ TagManager:
   - Platform-Left
   - DeathFloor
   - Bullet Collision
-  - 
-  - 
+  - LeftWall
+  - RightWall
   - 
   - 
   - 

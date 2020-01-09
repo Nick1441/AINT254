@@ -6,6 +6,13 @@ using UnityEngine.Events;
 
 public class BasicMovement : MonoBehaviour
 {
+    //Script to Move Player Around Map.
+    //Moves Player 1 "Block" At a time, Equivilent to 1 Increase in Unity.
+    //This Script also Contains methods for Colliding into walls & Moving When Colliding with Objects.
+    //All Values Get Reset Back To a Integer.
+    //Animation is Played When Player Moves, Allowing a smooth Transition for the Camera.
+
+
     float LerpTime;
     float CurrentLerpTime;
     float MoveTime = 1;
@@ -14,61 +21,45 @@ public class BasicMovement : MonoBehaviour
     public bool Jumping;
     public bool Floating;
     public bool InAir = false;
-    private bool Platform = false;
-    private bool PlatformLeft = false;
+    private bool RightPlatform= false;
+    private bool LeftPlatform = false;
     private bool OnFirstTime = true;
     private bool OnFirstTime2 = false;
-    public Rigidbody rb;
     public float MoveSpeed = 10;
 
     //Locations Of Players Start and End Positions.
     Vector3 StartPos;
     Vector3 EndPos;
 
-    void start()
-    {
-        rb = GetComponent<Rigidbody>();
-        //bc = GetComponent<BoxCollider>();
-    }
+    //Calls Methods To Check What Movement Player Needs.
     void Update()
     {
-        //This Is Called Every Frame, it is for movement of the Player.
-        //Movement();
         PlatFormCollision();
     }
 
+    //These Are Sent By Colliders From Jumping Challenge.
     public void OnPlatForm()
     {
-        Platform = true;
+        RightPlatform= true;
     }
 
     public void OnPlatformLeft()
     {
         
-        PlatformLeft = true;
+        LeftPlatform = true;
     }
 
-    //PLATFORMS MOVING GOING RIGHT
+    //Method For Choosing Which Movement We Want, This is either Auto (On Jumping Challenger, Right Or Left), or Fully Down to the Player.
     public void PlatFormCollision()
     {
-
-        if (Platform == false && PlatformLeft == false)
+        if (RightPlatform== false && LeftPlatform == false)
         {
-            //If statment to stop Player Walking Off Edge of Map
-            if (gameObject.transform.position.x > -24 && gameObject.transform.position.x < 22)
-            {
-                
-            }
-            else
-            {
-                Debug.Log("Edge Of Map");
-            }
-
+            //Calls Regular Method For Moving.
             Movement();
         }
-        else if (Platform == true)
+        else if (RightPlatform== true)
         {
-                transform.position = new Vector3(transform.position.x, transform.position.y, (Mathf.CeilToInt(transform.position.z)));
+            transform.position = new Vector3(transform.position.x, transform.position.y, (Mathf.CeilToInt(transform.position.z)));
             if (MoveTime == 1)
             {
                 LerpTime = 1;
@@ -102,17 +93,18 @@ public class BasicMovement : MonoBehaviour
                 }
             }
 
+            //Only Option On Platforms is To Move Forward Off Of Current Object.
             if (Input.GetKeyDown(KeyCode.W))
             {
-                Platform = false;
+                RightPlatform= false;
                 EndPos = new Vector3(transform.position.x, transform.position.y, (Mathf.CeilToInt(transform.position.z)) + 1);
                 EndMovement(EndPos);
                 
             }
 
-            Platform = false;
+            RightPlatform= false;
         }
-        else if (PlatformLeft == true)
+        else if (LeftPlatform == true)
             {
             transform.position = new Vector3(transform.position.x, transform.position.y, (Mathf.CeilToInt(transform.position.z)));
             if (MoveTime == 1)
@@ -150,20 +142,22 @@ public class BasicMovement : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.W))
             {
-                PlatformLeft = false;
+                LeftPlatform = false;
                 EndPos = new Vector3(transform.position.x, transform.position.y, (Mathf.CeilToInt(transform.position.z)) + 1);
                 EndMovement(EndPos);
 
             }
 
-            PlatformLeft = false;
+            LeftPlatform = false;
         }
     }
 
     //PLATFORMS MOVING GOING RIGHT
 
+    //If Player Hits Enviroment or Side Walls.
     public void OnCollisionEnter(Collision Coll)
     {
+        //If Player Hits Something Ahead.
         if (Coll.gameObject.layer == LayerMask.NameToLayer("Environment"))
         {
             float Rounded = (Mathf.FloorToInt(transform.position.z));
@@ -171,7 +165,27 @@ public class BasicMovement : MonoBehaviour
 
             EndMovement(EndPos);
         }
+
+        //If Player Hits Left Wall
+        if (Coll.gameObject.layer == LayerMask.NameToLayer("LeftWall"))
+        {
+            float Rounded = (Mathf.CeilToInt(transform.position.x));
+            EndPos = new Vector3(Rounded, transform.position.y, transform.position.z);
+
+            EndMovement(EndPos);
+        }
+
+        //if Player Hits Right Wall.
+        if (Coll.gameObject.layer == LayerMask.NameToLayer("RightWall"))
+        {
+            float Rounded = (Mathf.FloorToInt(transform.position.x));
+            EndPos = new Vector3(Rounded, transform.position.y, transform.position.z);
+
+            EndMovement(EndPos);
+        }
     }
+
+
     public void Movement()
     {
         //Checks To See if player is pressing one of the move Keys.

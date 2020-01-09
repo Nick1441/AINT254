@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   Distance: 0
-  Range: 20
+  Range: 40
   LavaJumpSingleL: {fileID: 6772733331569532475, guid: 6f21f503e832dd74d894bdaeb6bc5a51,
     type: 3}
   LavaJumpSingleR: {fileID: 731487092524123015, guid: 544a957707f35eb4aa27a3c196d02fdb,
@@ -60,8 +60,10 @@ MonoBehaviour:
     type: 3}
   EnemyAttack: {fileID: 9044214243072432432, guid: e12be75b9c1ffc14b834d041e2d7bd0f,
     type: 3}
-  Trees: {fileID: 5122588398813596735, guid: 81acb473cbc64ec48a3425771cb56bb4, type: 3}
-  TrainDodge: {fileID: 5709413511137332940, guid: d2aa44c687d58a64d8a3eb100f2c146e,
+  Trees: {fileID: 1235249109759730662, guid: 42f1842652d1cfa409ebbf7d47419884, type: 3}
+  Trees2: {fileID: 4017589488791463969, guid: ec2e936876828f24bba4ff7d46e394c6, type: 3}
+  Trees3: {fileID: 4503592785184232627, guid: 84ec13eb9410aa6409662ec986e57bef, type: 3}
+  TrainDodge: {fileID: 6259405040077105127, guid: d2aa44c687d58a64d8a3eb100f2c146e,
     type: 3}
   Spawner: {fileID: 6958816799831354937}
   Chance: 0
