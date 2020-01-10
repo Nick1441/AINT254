@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
     //GAME
     public void EndGame()
     {
-        SceneManager.LoadScene("EndScene");
+        SceneManager.LoadScene("EndScreen");
     }
 
     //MAIN MENU
@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
     //END MENU
     public void RestartGame()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenu_V2");
     }
 
     void Update()

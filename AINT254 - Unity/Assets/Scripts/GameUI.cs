@@ -40,4 +40,10 @@ public class GameUI : MonoBehaviour
     {
         EnemyPoints = EnemyPoints + Score;
     }
+
+    public void FixedUpdate()
+    {
+        PlayerPrefs.SetString("Player Score", ScorePoints.text);
+        PlayerPrefs.SetInt("Score", Score);
+    }
 }

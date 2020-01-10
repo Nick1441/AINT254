@@ -18,7 +18,7 @@ public class GameManager_Menus : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        SceneManager.LoadScene("EndScene");
+        SceneManager.LoadScene("EndScreen");
     }
 
     //Moving To Main Menu Screen.
@@ -31,7 +31,7 @@ public class GameManager_Menus : MonoBehaviour
     public void MainMenu()
     {
         Cursor.lockState = CursorLockMode.None;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenu_V2");
     }
 
     public void ExitGame()

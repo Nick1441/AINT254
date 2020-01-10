@@ -580,6 +580,9 @@ MonoBehaviour:
   - {fileID: 6318238973091185591}
   LowRange: 1
   HighRange: 5
+  Player: {fileID: 0}
+  Distance: 0
+  Range: 10
 --- !u!114 &6318238973089047759
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,8 +9,12 @@ public class Weapon : MonoBehaviour
     public Transform[] BulletSpawn;
     public float FireCoolDown = 1.0f;
     private bool isFiring = false;
+    AudioSource AudioS;
 
-
+    void Start()
+    {
+        
+    }
 
     public void Fire()
     {
@@ -35,6 +39,8 @@ public class Weapon : MonoBehaviour
             if (!isFiring)
             {
                 Fire();
+                AudioSource AudioS = gameObject.GetComponent<AudioSource>();
+                AudioS.Play();
             }
         }
     }
