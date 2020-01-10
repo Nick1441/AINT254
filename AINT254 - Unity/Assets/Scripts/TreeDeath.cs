@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TreeDeath : MonoBehaviour
 {
-    // Start is called before the first frame update
+    //Calling animation before tree object is destroyed.
     public void StartThis()
     {
         gameObject.GetComponent<Animator>().enabled = true;

@@ -20,24 +20,19 @@ public class CameraMovement : MonoBehaviour
     float RotUpDown;
     Vector3 euler;
 
-    void Start()
-    {
-
-    }
-
-
     void Update()
     {
+        //Getting rotation into Euler
         transform.localEulerAngles = euler;
-        // Getting axes
+        //Getting Input from the mouse.
         RotLeftRight = Input.GetAxis("Mouse X") * RotSpeed * Time.deltaTime;
         RotUpDown = Input.GetAxis("Mouse Y") * RotSpeed * Time.deltaTime;
 
-        // Doing movements
         euler.x += -RotUpDown;
 
         euler.y += RotLeftRight;
 
+        // Seeing if the movement extands over the certain amount. if it does, set it back to the limit.
         if (euler.x >= maxX)
             euler.x = maxX;
         if (euler.x <= minX)
@@ -48,26 +43,4 @@ public class CameraMovement : MonoBehaviour
         if (euler.y <= minY)
             euler.y = minY;
     }
-    //public float SpeedHor = 2.0f;
-    //public float SpeedVer = 2.0f;
-
-    //private float MoveH = 0.0f;
-    //private float MoveV = 0.0f;
-
-    //// Start is called before the first frame update
-    //void Start()
-    //{
-    //    Cursor.visible = false;
-    //}
-
-    //// Update is called once per frame
-    //void Update()
-    //{
-    //    //transform.localEulerAngles = euler;
-
-    //    MoveH += SpeedHor * Input.GetAxis("Mouse X");
-    //    MoveV -= SpeedVer * Input.GetAxis("Mouse Y");
-
-    //    transform.eulerAngles = new Vector3(MoveV, MoveH, 0.0f);
-    //}
 }

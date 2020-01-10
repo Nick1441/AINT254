@@ -38,9 +38,11 @@ public class SpawnerSpawner : MonoBehaviour
 
     void Update()
     {
+        //gets Distance from spawner and Player.
         Player = GameObject.FindWithTag("Player");
         Distance = Vector3.Distance(Player.transform.position, transform.position);
 
+        //if close enough, it will chance a object and spawn it at its current location.
         if (Distance <= Range)
         {
             Chance = Random.Range(0, 100);
@@ -109,9 +111,11 @@ public class SpawnerSpawner : MonoBehaviour
                 NextSpawnerDis = 25;
             }
 
+            //Created new spawner based on what challenge, Differnt challenges have differnt widths.
             Vector3 NextSpawner = new Vector3(transform.position.x, transform.position.y, transform.position.z + NextSpawnerDis);
             GameObject NextSpawn = Instantiate(Spawner, NextSpawner, transform.rotation) as GameObject;
 
+            //Destroys itself as not required anymore, prevents lag.
             Destroy(this.gameObject);
         }
     }

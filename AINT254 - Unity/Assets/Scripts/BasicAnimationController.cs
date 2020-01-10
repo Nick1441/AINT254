@@ -19,6 +19,7 @@ public class BasicAnimationController : MonoBehaviour
        AnimationController();
     }
 
+    //Playing Jump Animation when recieved
     public void AnimationController()
     {
         BasicMovement MoveScript = Player.GetComponent<BasicMovement>();

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
+//Edited From First Years Version.
 [System.Serializable]
 public struct HighScores
 {

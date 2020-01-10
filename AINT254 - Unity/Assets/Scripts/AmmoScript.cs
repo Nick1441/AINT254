@@ -7,12 +7,13 @@ public class AmmoScript : MonoBehaviour
     public float MoveSpeed = 100.0f;
     public int Damage = 1;
 
-    // Start is called before the first frame update
+    //Gets Rigid Body Component, Multiplys by move speed of users  input.
     void Start()
     {
         GetComponent<Rigidbody>().AddForce(transform.forward * MoveSpeed);
     }
 
+    //When a bullet enters something, it sends int of Health as Damage.
     private void OnTriggerEnter(Collider Col)
     {
         Debug.Log("THIS");
@@ -20,6 +21,7 @@ public class AmmoScript : MonoBehaviour
         DestroyObject();
     }
 
+    //Setting objects to destory when they can no longer bee seen.
     private void DestroyObject()
     {
         Destroy(gameObject);

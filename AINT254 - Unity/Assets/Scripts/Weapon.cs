@@ -16,6 +16,7 @@ public class Weapon : MonoBehaviour
         
     }
 
+    //Creates Ammo Prefab from spawn point. Adds Cooldown so cannot be called unitl time runs down.
     public void Fire()
     {
         isFiring = true;
@@ -31,7 +32,7 @@ public class Weapon : MonoBehaviour
         isFiring = false;
     }
 
-    // Update is called once per frame
+    //Checking to see if the user has fired the weapon.
     void Update()
     {
         if (Input.GetMouseButton(0))

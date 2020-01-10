@@ -18,6 +18,7 @@ public class GroundSpawner : MonoBehaviour
     }
 
     //Issue With Not Finding Players Tag On Start.
+    //Spawns ground Underchallenges throughout game.
     void Update()
     {
         Player = GameObject.FindWithTag("Player");

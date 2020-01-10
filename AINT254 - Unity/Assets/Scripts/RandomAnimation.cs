@@ -5,7 +5,7 @@ using UnityEngine;
 public class RandomAnimation : MonoBehaviour
 {
     private Animator Anim;
-    // Start is called before the first frame update
+    //Starts Challenges at random times.
     void Start()
     {
         Anim = gameObject.GetComponent<Animator>();

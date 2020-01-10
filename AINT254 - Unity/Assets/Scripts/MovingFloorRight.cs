@@ -6,8 +6,7 @@ using UnityEngine.Events;
 public class MovingFloorRight : MonoBehaviour
 {
 
-    //UnityEvent TestEvent = new UnityEvent()
-    //public UnityEvent OnPlatform;
+    //Calls Function when player is on Challenge.
 
     public GameObject player;
 
@@ -23,9 +22,7 @@ public class MovingFloorRight : MonoBehaviour
     // Start is called before the first frame update
     public void OnTriggerStay(Collider col)
     {
-
         TestThis();
-        //OnPlatform.Invoke();
     }
 
 

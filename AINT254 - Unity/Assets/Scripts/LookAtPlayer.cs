@@ -12,6 +12,7 @@ public class LookAtPlayer : MonoBehaviour
         transform.LookAt(playerPos);
     }
 
+    //Makes Enemy look towards a player.
     public void Start()
     {
         player = GameObject.FindWithTag("Player");

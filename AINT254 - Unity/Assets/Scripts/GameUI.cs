@@ -17,7 +17,7 @@ public class GameUI : MonoBehaviour
 
     //HEALTH SYSTEM
     public Slider HealthBar;
-    // Start is called before the first frame update
+
 
     public void UpdateHealthbar(int Health)
     {
@@ -30,17 +30,20 @@ public class GameUI : MonoBehaviour
         Score = (int)PlayerStart.z - (StartingGap + 1);
     }
 
+    //Setting players Score to text on UI.
     void Update()
     {
         Score =  ((int)Player.transform.position.z - (StartingGap + 1)) + EnemyPoints;
         ScorePoints.text = "SCORE - " + Score.ToString();
     }
 
+    //Recieveing sent score.
     public void RecieveScoreAdded(int Score)
     {
         EnemyPoints = EnemyPoints + Score;
     }
 
+    //Setting Scores for Highscore tables.
     public void FixedUpdate()
     {
         PlayerPrefs.SetString("Player Score", ScorePoints.text);

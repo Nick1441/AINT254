@@ -15,22 +15,23 @@ public class EnemyWeapon : MonoBehaviour
     public float Distance;
     public float Range = 10;
 
-
+    //Fires the wepon.
+    //Currently Distance checker has been removed due to working in Unity, but not in builds.
     public void Fire()
     {
         Player = GameObject.FindWithTag("Player");
         Distance = Vector3.Distance(Player.transform.position, transform.position);
 
-        if (Distance <= Range)
-        {
+        //if (Distance <= Range)
+        //{
             for (int i = 0; i < BulletSpawn.Length; i++)
             {
                 Instantiate(Ammo, BulletSpawn[i].position, BulletSpawn[i].rotation);
             }
-        }
+        //}
     }
 
-    // Update is called once per frame
+    //Finds player. Calls shooing when loaded.
     void Start()
     {
         Player = GameObject.FindWithTag("Player");

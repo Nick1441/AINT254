@@ -14,7 +14,7 @@ public class DestroyOnDistance : MonoBehaviour
         Player = GameObject.FindWithTag("Player");
     }
 
-    // Update is called once per frame
+    //Checks to see the objects distance from the player, if it is far, it will auto delete. Prevents Laggin.
     void Update()
     {
         Player = GameObject.FindWithTag("Player");
